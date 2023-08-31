@@ -17,24 +17,60 @@
     <body>
         <div class="container">
             <div class="formBox">
-                <h1>Sign Up</h1>
+                <h1 id="title">Sign Up</h1>
                 <form>
                     <div class="inputBoxes">
-                        <div class="inputfield">
+                        <!-- Name input field -->
+                        <div class="inputfield" id="nameField">
                             <i class="fa-solid fa-user"></i>
                             <input type="text" placeholder="Name" class="input">
                         </div>
-                        <div class="inputfield">
+                        <!-- Email input field -->
+                        <div class="inputfield" id="emailField">
                             <i class="fa-solid fa-envelope"></i>
                             <input type="email" placeholder="Email" class="input">
                         </div>
-                        <div class="inputfield">
+                        <!-- StudentID input field -->
+                        <div class="inputfield" id="studentIDField">
                             <i class="fa-solid fa-id-card"></i>
                             <input type="number" placeholder="StudentID" class="input">
                         </div>
+                        <!-- help message -->
+                        <p>Need help? <a href="">Click Here!</a></p>
+                    </div>
+                    <!-- Sign up button -->
+                    <div class="buttonField">
+                        <button type="button" id="SignupButton">Sign Up</button>
                     </div>
                 </form>
             </div>
         </div>
+
+        <script>
+            let SignupButton = document.getElementById("SignupButton");
+            let nameField = document.getElementById("nameField");
+            let emailField = document.getElementById("emailField");
+            let studentIDField = document.getElementById("studentIDField");
+            let title = document.getElementById("title");
+
+            SignupButton.onclick = function(){
+                if(nameField.value == "" || emailField.value == "" || studentIDField.value == ""){
+                    alert("Please fill in all the fields!");
+                }
+                else{
+                    nameField.style.maxHeight = "0";
+                    emailField.style.maxHeight = "0";
+                    studentIDField.style.maxHeight = "0";
+                    SignupButton.style.maxHeight = "0";
+                    //change title
+                    title.innerHTML = "Sign up successful!";
+                    //make title in the middle
+                    title.style.marginTop = "50px";
+                    title.style.marginBottom = "50px";
+                    alert("Sign up successful!");
+                }
+            }
+        </script>
+
     </body>
 </html>
